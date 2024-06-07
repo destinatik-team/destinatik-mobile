@@ -21,4 +21,14 @@
     <string name="please_check_your_email">Please check your email</string>
     <string name="we_ve_sent_a_code_to">We’ve sent a code to</string>
     <string name="destinatik04_gmail_com">destinatik04@gmail.com</string>
+    <string name="send_code_again">"Send code again : "</string>
+    <string name="image">Image</string>
+    <string name="times">00:20</string>
+    <string name="_0">0</string>
+    <string name="verify">Verify</string>
+    <string name="home">Home</string>
+    <string name="shop">Shop</string>
+    <string name="favorite">Favorite</string>
+    <string name="notifications">Notification</string>
+    <string name="profile">Profile</string>
 </resources>

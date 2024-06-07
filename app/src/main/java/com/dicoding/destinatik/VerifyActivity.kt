@@ -1,5 +1,6 @@
 package com.dicoding.destinatik
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,21 @@ class VerifyActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        binding.apply {
+            ivBackRegiser.setOnClickListener{
+                val intent = Intent(this@VerifyActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
+            tvLogin.setOnClickListener {
+                val intent = Intent(this@VerifyActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
+            RBtnVerify.setOnClickListener {
+                val intent = Intent(this@VerifyActivity, ResetActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 }

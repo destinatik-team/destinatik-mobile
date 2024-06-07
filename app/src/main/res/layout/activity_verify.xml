@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,8 +11,9 @@
         android:id="@+id/ivBackRegiser"
         android:layout_width="55dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="50dp"
+        android:contentDescription="@string/image"
         android:src="@drawable/back" />
 
     <TextView
@@ -28,7 +28,7 @@
 
     <TextView
         android:id="@+id/tvDesc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/R_txt_register"
         android:layout_marginStart="25dp"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/R_txt_register"
-        android:layout_marginStart="-232dp"
+        android:layout_marginStart="7dp"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/tvDesc"
         android:fontFamily="@font/urbanistbold"
@@ -50,42 +50,118 @@
         android:textSize="16sp" />
 
     <LinearLayout
-        android:id="@+id/layout_login"
+        android:id="@+id/layout_code_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvDesc"
         android:layout_marginTop="30dp"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center">
 
         <EditText
-            android:id="@+id/R_username"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:background="@drawable/button_shape"
-            android:backgroundTint="@color/Gray"
-            android:fontFamily="@font/urbanistmedium"
-            android:hint="Username"
-            android:padding="16dp"
-            android:textColorHint="@color/GrayDark" />
+            android:id="@+id/et_digit_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:hint="@string/_0"
+            android:autofillHints="0"
+            android:background="@drawable/button_shape_input"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/urbanistmedium" />
+
+        <EditText
+            android:id="@+id/et_digit_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:hint="@string/_0"
+            android:layout_margin="5dp"
+            android:autofillHints="0"
+            android:background="@drawable/button_shape_input"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/urbanistmedium" />
+
+        <EditText
+            android:id="@+id/et_digit_3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:hint="@string/_0"
+            android:layout_margin="5dp"
+            android:autofillHints="0"
+            android:background="@drawable/button_shape_input"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/urbanistmedium" />
+
+        <EditText
+            android:id="@+id/et_digit_4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:hint="@string/_0"
+            android:autofillHints="0"
+            android:background="@drawable/button_shape_input"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/urbanistmedium" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/R_btn_register"
+        android:id="@+id/R_btn_verify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout_login"
+        android:layout_below="@+id/layout_code_input"
         android:layout_centerHorizontal="true"
         android:width="370dp"
         android:height="40dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/urbanistsemibold"
-        android:text="@string/send_link" />
+        android:text="@string/verify" />
+
+    <RelativeLayout
+        android:id="@+id/layout_resend_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/R_btn_verify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_resend_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanistmedium"
+            android:text="@string/send_code_again"
+            android:textColor="@color/GrayMediumDark"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/tv_resend_code"
+            android:fontFamily="@font/urbanistmedium"
+            android:text="@string/times"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/R_btn_register"
+        android:layout_below="@id/R_btn_verify"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp">
 
