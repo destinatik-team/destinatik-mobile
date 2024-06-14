@@ -1,14 +1,124 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image"
 
-</FrameLayout>
+        android:src="@drawable/card"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="140dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ardian"
+        app:civ_border_color="#FFFFFFFF"
+        app:civ_border_width="2dp" />
+
+    <Button
+        android:id="@+id/edit_profile_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
+        android:backgroundTint="@color/colorSecondary"
+        android:text="@string/edit_profile"
+        android:textColor="@android:color/white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:minHeight="48dp"
+        android:minWidth="120dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_profile_button"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <EditText
+            android:id="@+id/R_username"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:autofillHints="@string/username"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/Gray"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/R_email"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:autofillHints="@string/email"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/Gray"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/R_phone"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:autofillHints="@string/phone_number"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/Gray"
+            android:hint="@string/phone_number"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginBottom="16dp"
+            android:inputType="phone"/>
+
+        <EditText
+            android:id="@+id/R_password"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:autofillHints="@string/password"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/Gray"
+            android:hint="@string/password"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"
+            android:fontFamily="@font/urbanistmedium"
+            android:inputType="textPassword"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/R_update"
+        android:fontFamily="@font/urbanistsemibold"
+        android:layout_width="380dp"
+        android:layout_height="56dp"
+        android:background="@drawable/button_shape"
+        android:backgroundTint="@color/colorSecondary"
+        android:text="@string/update"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/layout_profile"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:minHeight="48dp"
+        android:minWidth="120dp" />
+
+</RelativeLayout>
