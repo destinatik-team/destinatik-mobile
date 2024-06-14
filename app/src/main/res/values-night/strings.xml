@@ -29,4 +29,25 @@
     <string name="favorite">Favorite</string>
     <string name="notifications">Notification</string>
     <string name="profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="recommended">Recommended</string>
+    <string name="star_icon">Star icon</string>
+    <string name="_4_8">4.8</string>
+    <string name="settings">Settings</string>
+    <string name="you_are_looking_for_a_trip">You are looking for a trip ?</string>
+    <string name="recommended_icon">Recommended Icon</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="update">Update</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="back_button">Back</string>
+    <string name="fav_button">Favourite Button</string>
+    <string name="place">Koh Mook</string>
+    <string name="trang_thailand">Trang, Thailand</string>
+    <string name="rating">4.5</string>
+    <string name="details">Details</string>
+    <string name="descs">The third largest island in the Trang Sea is Koh Muk, which is beautiful and peaceful like a private island...</string>
+    <string name="find_a_place_on_maps">Find a place on maps</string>
 </resources>

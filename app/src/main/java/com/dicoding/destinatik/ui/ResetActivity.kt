@@ -1,10 +1,11 @@
-package com.dicoding.destinatik
+package com.dicoding.destinatik.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dicoding.destinatik.R
 
 class ResetActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

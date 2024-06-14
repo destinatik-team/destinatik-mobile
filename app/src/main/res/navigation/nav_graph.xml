@@ -11,17 +11,17 @@
         tools:layout="@layout/fragment_splash" />
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.dicoding.destinatik.OnboardingFragment"
+        android:name="com.dicoding.destinatik.ui.OnboardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding" />
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dicoding.destinatik.HomeFragment"
+        android:name="com.dicoding.destinatik.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home"  />
     <fragment
         android:id="@+id/favouriteFragment"
-        android:name="com.dicoding.destinatik.FavouriteFragment"
+        android:name="com.dicoding.destinatik.ui.FavouriteFragment"
         android:label="fragment_favourite"
         tools:layout="@layout/fragment_favourite" />
 </navigation>

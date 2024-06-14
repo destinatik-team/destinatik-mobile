@@ -1,4 +1,4 @@
-package com.dicoding.destinatik
+package com.dicoding.destinatik.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,17 +6,16 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.dicoding.destinatik.databinding.ActivityForgotPasswordBinding
-import com.dicoding.destinatik.databinding.ActivityLoginBinding
-import com.dicoding.destinatik.databinding.ActivityVerifyBinding
+import com.dicoding.destinatik.R
+import com.dicoding.destinatik.databinding.ActivityRegisterBinding
 
-class VerifyActivity : AppCompatActivity() {
-    private var _binding: ActivityVerifyBinding? = null
+class RegisterActivity : AppCompatActivity() {
+    private var _binding: ActivityRegisterBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        _binding = ActivityVerifyBinding.inflate(layoutInflater)
+        _binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -26,15 +25,11 @@ class VerifyActivity : AppCompatActivity() {
 
         binding.apply {
             ivBackRegiser.setOnClickListener{
-                val intent = Intent(this@VerifyActivity, LoginActivity::class.java)
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
             }
             tvLogin.setOnClickListener {
-                val intent = Intent(this@VerifyActivity, LoginActivity::class.java)
-                startActivity(intent)
-            }
-            RBtnVerify.setOnClickListener {
-                val intent = Intent(this@VerifyActivity, ResetActivity::class.java)
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                 startActivity(intent)
             }
         }

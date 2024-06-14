@@ -9,6 +9,7 @@
     <color name="GrayMediumDark">#6A707C</color>
     <color name="colorPrimary">#1C294B</color>
     <color name="colorPrimaryVariant">#539DF3</color>
+    <color name="colorPrimaryContent">#2894D1</color>
     <color name="colorSecondary">#FFFFFFFF</color>
     <color name="colorSecondaryVariant">#BEE3CB</color>
     <color name="LightSteelBlue">#BBC0CA</color>
