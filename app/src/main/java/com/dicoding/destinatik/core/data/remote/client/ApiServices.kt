@@ -5,17 +5,25 @@ import com.dicoding.destinatik.core.data.remote.response.auth.RegisterResponse
 import com.dicoding.destinatik.core.domain.model.AuthModel
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 interface ApiServices {
 
-    @POST("auth/login")
+    @FormUrlEncoded
+    @POST("login")
     fun login(
-        @Body user: AuthModel
+        @Field("usernameOrEmail") usernameOrEmail: String,
+        @Field("password") password: String
     ): Call<LoginResponse>
 
-    @POST("auth/register")
+    @FormUrlEncoded
+    @POST("register")
     fun register(
-        @Body user: AuthModel
+        @Field("username") username: String,
+        @Field("email") email: String,
+        @Field("password") password: String
     ): Call<RegisterResponse>
+
 }

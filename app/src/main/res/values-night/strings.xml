@@ -50,4 +50,13 @@
     <string name="details">Details</string>
     <string name="descs">The third largest island in the Trang Sea is Koh Muk, which is beautiful and peaceful like a private island...</string>
     <string name="find_a_place_on_maps">Find a place on maps</string>
+    <string name="dark_mode">Dark mode</string>
+    <string name="logout">Logout</string>
+    <string name="place_image">Place Image</string>
+    <string name="delete">Deleted</string>
+    <string name="place_name">Pak Meng Beach</string>
+    <string name="_4_5">4.5</string>
+    <string name="location">Location</string>
+    <string name="my_places">My Places</string>
+    <string name="your_current_location">Location</string>
 </resources>

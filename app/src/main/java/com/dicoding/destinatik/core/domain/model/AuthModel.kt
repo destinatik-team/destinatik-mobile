@@ -11,6 +11,4 @@ data class AuthModel(
     val email: String,
     @SerializedName("password")
     val password: String,
-    @SerializedName("status")
-    val status: String
 )

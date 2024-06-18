@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dicoding.destinatik.R
 
+
 class OnboardingFragment : Fragment() {
 
     override fun onCreateView(
