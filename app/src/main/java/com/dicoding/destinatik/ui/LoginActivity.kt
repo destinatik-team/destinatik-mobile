@@ -2,6 +2,7 @@ package com.dicoding.destinatik.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
@@ -57,13 +58,34 @@ class LoginActivity : AppCompatActivity() {
         authViewModel.loginResult.observe(this) { response ->
             binding.progressBar.visibility = View.GONE
             if (response != null) {
-                authPreferences.saveToken(response.token)
+                Log.d("LoginActivity", "Login successful: $response")
+
+                val token = response.token
+                if (token != null) {
+                    Log.d("LoginActivity", "Saving token: $token")
+                    authPreferences.saveToken(token)
+                } else {
+                    Log.e("LoginActivity", "Login failed: Token is null")
+                    showErrorDialog("Login failed")
+                    return@observe
+                }
+
+                val userId = response.userId
+                if (userId != null) {
+                    Log.d("LoginActivity", "Saving userId: $userId")
+                    authPreferences.saveUserId(userId)
+                } else {
+                    Log.e("LoginActivity", "Login failed: User ID is null")
+                    showErrorDialog("Login failed")
+                    return@observe
+                }
+
                 // Navigate to MainActivity
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
-                showErrorDialog("Something went wrong or username and password wrong")
+                showErrorDialog("Something went wrong or username and password are incorrect")
             }
         }
 

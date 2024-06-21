@@ -61,4 +61,8 @@
     <string name="location">Location</string>
     <string name="my_places">My Places</string>
     <string name="your_current_location">Location</string>
+    <string name="close_button">Close</string>
+    <string name="submit">Submit</string>
+    <string name="rating_this_place">Rating this place!</string>
+    <string name="hi_ninejoe">Hi Ninejoe</string>
 </resources>

@@ -20,8 +20,11 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         buildConfigField("String", "BASE_URL", "\"https://reihaniz.com/destinatik/\"")
+        buildConfigField("String", "BASE_URL_MAIN", "\"https://destinatik-api-pd46stytga-uc.a.run.app/\"")
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {

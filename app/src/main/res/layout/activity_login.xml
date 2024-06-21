@@ -109,7 +109,7 @@
 
     </LinearLayout>
 
-<!--    Cardview Google Sign-->
+    <!--    Cardview Google Sign-->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_google_login"
         android:layout_width="wrap_content"

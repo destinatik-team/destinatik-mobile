@@ -31,7 +31,6 @@
             android:layout_marginBottom="144dp"
             android:background="@android:color/transparent"
             android:padding="8dp"
-            android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/image"

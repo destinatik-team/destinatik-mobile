@@ -45,15 +45,17 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val token = authPreferences.getToken()
-            if (!token.isNullOrEmpty()) {
-                // Navigate to HomeFragment
-                findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
-            } else {
-                // Navigate to LoginActivity
-                val intent = Intent(activity, LoginActivity::class.java)
-                startActivity(intent)
-                activity?.finish()
+            if (isAdded) {
+                val token = authPreferences.getToken()
+                if (!token.isNullOrEmpty()) {
+                    // Navigate to HomeFragment
+                    findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+                } else {
+                    // Navigate to LoginActivity
+                    val intent = Intent(activity, LoginActivity::class.java)
+                    startActivity(intent)
+                    activity?.finish()
+                }
             }
         }, 3000) // 3 seconds delay
     }
