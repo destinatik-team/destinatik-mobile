@@ -2,7 +2,6 @@ package com.dicoding.destinatik.ui
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
@@ -12,14 +11,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.dicoding.destinatik.R
 import com.dicoding.destinatik.databinding.FragmentDetailBinding
 import com.dicoding.destinatik.databinding.FragmentDetailsBinding
 import com.dicoding.destinatik.utils.BlurUtils
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
@@ -36,11 +37,31 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupStatusBar()
         setupBlurView()
         setupPlaceDetails()
         setupBackButton() // Setup the back button
     }
 
+
+    private fun setupStatusBar() {
+        activity?.window?.apply {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            statusBarColor = ContextCompat.getColor(requireContext(), android.R.color.transparent)
+        }
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+    }
+
+    private fun resetStatusBar() {
+        activity?.window?.apply {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+            statusBarColor = ContextCompat.getColor(requireContext(), R.color.colorPrimary) // replace with your primary color
+        }
+    }
     private fun vectorToBitmap(context: Context, vectorResId: Int): Bitmap {
         val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)!!
         val bitmap = Bitmap.createBitmap(
@@ -89,10 +110,29 @@ class DetailFragment : Fragment() {
 
     private fun setupPlaceDetails() {
         val place = args.place
-        Log.d("DetailsFragment", "Place details: $place")
-        binding.placeTitle.text = place.placeName
-        binding.placeLocation.text = place.category
+        val searchModel = args.searchModel
+
+        if (place != null) {
+            Log.d("DetailsFragment", "Place details: $place")
+            binding.placeTitle.text = place.placeName
+            binding.placeLocation.text = place.category
+        } else if (searchModel != null) {
+            Log.d("DetailsFragment", "SearchModel details: $searchModel")
+            binding.placeTitle.text = searchModel.name
+            binding.placeLocation.text = searchModel.address
+
+            // Use Glide to load the image
+            Glide.with(requireContext())
+                .load(searchModel.photos.firstOrNull()?.url) // Assuming photos list is not empty and url is valid
+                .placeholder(R.drawable.shape_content) // Placeholder image
+                .into(binding.backgroundImage)
+        } else {
+            // Handle the case when both place and searchModel are null
+            binding.placeTitle.text = getString(R.string.place_name)
+            binding.placeLocation.text = getString(R.string.location)
+        }
     }
+
 
     private fun navigateToRating() {
         val ratingFragment = RatingFragment()
@@ -107,6 +147,7 @@ class DetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        resetStatusBar()
         _binding = null
     }
 }

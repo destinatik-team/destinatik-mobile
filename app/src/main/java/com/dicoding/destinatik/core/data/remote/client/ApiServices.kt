@@ -1,7 +1,9 @@
 package com.dicoding.destinatik.core.data.remote.client
 
+import com.dicoding.destinatik.core.data.remote.request.SearchRequest
 import com.dicoding.destinatik.core.data.remote.response.auth.LoginResponse
 import com.dicoding.destinatik.core.data.remote.response.auth.RegisterResponse
+import com.dicoding.destinatik.core.data.remote.response.main.SearchResponse
 import com.dicoding.destinatik.core.data.remote.response.users.UserResponse
 import com.dicoding.destinatik.core.domain.model.AuthModel
 import retrofit2.Call
@@ -31,4 +33,11 @@ interface ApiServices {
     @GET("profile")
     fun getUser(
     ): Call<UserResponse>
+
+    @FormUrlEncoded
+    @POST("maps/search")
+    fun search(
+        @Field("access_token") accessToken: String,
+        @Field("text") text: String
+    ): Call<SearchResponse>
 }

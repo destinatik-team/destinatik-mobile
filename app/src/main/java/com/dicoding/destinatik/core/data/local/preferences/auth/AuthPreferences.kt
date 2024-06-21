@@ -44,4 +44,3 @@ class AuthPreferences(
         private const val USER_ID_KEY = "userId"
     }
 }
-

@@ -55,7 +55,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyCSz005H-W0qwWWkMTdb2G5xv_IffRcOEc" />
 
         <activity
             android:name=".ui.ResetActivity"

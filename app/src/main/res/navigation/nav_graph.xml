@@ -15,7 +15,12 @@
             app:destination="@id/detailFragment">
             <argument
                 android:name="place"
-                app:argType="com.dicoding.destinatik.core.domain.model.Place" />
+                app:argType="com.dicoding.destinatik.core.domain.model.Place"
+                app:nullable="true" />
+            <argument
+                android:name="searchModel"
+                app:argType="com.dicoding.destinatik.core.domain.model.SearchModel"
+                app:nullable="true" />
         </action>
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
@@ -62,9 +67,14 @@
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="place"
-            app:argType="com.dicoding.destinatik.core.domain.model.Place" />
+            app:argType="com.dicoding.destinatik.core.domain.model.Place"
+            app:nullable="true" />
+        <argument
+            android:name="searchModel"
+            app:argType="com.dicoding.destinatik.core.domain.model.SearchModel"
+            app:nullable="true" />
         <action
-            android:id="@+id/action_detailsFragment_to_homeFragment"
+            android:id="@+id/action_detailFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
             android:id="@+id/action_detailsFragment_to_ratingFragment"

@@ -8,12 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.dicoding.destinatik.R
 import com.dicoding.destinatik.core.data.adapter.DestinatikAdapter
+import com.dicoding.destinatik.core.data.adapter.SearchAdapter
 import com.dicoding.destinatik.core.data.local.preferences.auth.AuthPreferences
 import com.dicoding.destinatik.core.domain.viewmodel.MainViewModel
 import com.dicoding.destinatik.core.domain.viewmodel.UsersViewModel
@@ -30,6 +32,7 @@ class HomeFragment : Fragment() {
     private val mainViewModel: MainViewModel by viewModel()
     private val usersViewModel: UsersViewModel by viewModel()
     private lateinit var destinatikAdapter: DestinatikAdapter
+    private lateinit var searchAdapter: SearchAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +44,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val accessToken = "AIzaSyCSz005H-W0qwWWkMTdb2G5xv_IffRcOEc"
 
         val token = authPreferences.getToken()
         if (token.isNullOrEmpty()) {
@@ -74,6 +79,13 @@ class HomeFragment : Fragment() {
         binding.apply {
             profileImage.setOnClickListener { navigateToProfile() }
             settingsIcon.setOnClickListener { navigateToSettings() }
+            searchBar.addTextChangedListener { text ->
+                if (text.isNullOrEmpty()) {
+                    binding.recyclerView.adapter = destinatikAdapter
+                } else {
+                    mainViewModel.searchPlaces(accessToken, text.toString())
+                }
+            }
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
@@ -85,9 +97,15 @@ class HomeFragment : Fragment() {
 
     private fun setupRecyclerView() {
         destinatikAdapter = DestinatikAdapter { place ->
-            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(place)
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(place, null)
             findNavController().navigate(action)
         }
+
+        searchAdapter = SearchAdapter { searchModel ->
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(null, searchModel)
+            findNavController().navigate(action)
+        }
+
         binding.recyclerView.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = destinatikAdapter
@@ -103,6 +121,15 @@ class HomeFragment : Fragment() {
         mainViewModel.error.observe(viewLifecycleOwner, Observer { message ->
             message?.let {
                 Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
+            }
+        })
+
+        mainViewModel.searchResults.observe(viewLifecycleOwner, Observer { searchResults ->
+            if (searchResults.isNotEmpty()) {
+                searchAdapter.setSearchResults(searchResults)
+                binding.recyclerView.adapter = searchAdapter
+            } else {
+                binding.recyclerView.adapter = destinatikAdapter
             }
         })
     }
