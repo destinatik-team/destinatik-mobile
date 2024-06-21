@@ -3,25 +3,96 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
-    <fragment
-        android:id="@+id/splashFragment"
-        android:name="com.dicoding.destinatik.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" />
-    <fragment
-        android:id="@+id/onboardingFragment"
-        android:name="com.dicoding.destinatik.OnboardingFragment"
-        android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+    app:startDestination="@id/splashFragment">
+
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.dicoding.destinatik.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.dicoding.destinatik.ui.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment">
+            <argument
+                android:name="place"
+                app:argType="com.dicoding.destinatik.core.domain.model.Place" />
+        </action>
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
     <fragment
-        android:id="@+id/favouriteFragment"
-        android:name="com.dicoding.destinatik.FavouriteFragment"
-        android:label="fragment_favourite"
-        tools:layout="@layout/fragment_favourite" />
+        android:id="@+id/favoriteFragment"
+        android:name="com.dicoding.destinatik.ui.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dicoding.destinatik.ui.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dicoding.destinatik.ui.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.dicoding.destinatik.ui.DetailFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="place"
+            app:argType="com.dicoding.destinatik.core.domain.model.Place" />
+        <action
+            android:id="@+id/action_detailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.dicoding.destinatik.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.dicoding.destinatik.ui.MapsFragment"
+        android:label="MapsFragment"
+        tools:layout="@layout/fragment_maps"/>
+
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.dicoding.destinatik.ui.RatingFragment"
+        android:label="RatingFragment">
+        <action
+            android:id="@+id/action_ratingFragment_to_homeFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

@@ -6,9 +6,12 @@
     <color name="Gray">#F7F8F9</color>
     <color name="GrayLight">#E8ECF4</color>
     <color name="GrayDark">#8391A1</color>
+    <color name="gradientStart">#00D9D9D9</color>
+    <color name="gradientEnd">#FFD9D9D9</color>
     <color name="GrayMediumDark">#6A707C</color>
     <color name="colorPrimary">#1C294B</color>
     <color name="colorPrimaryVariant">#539DF3</color>
+    <color name="colorPrimaryContent">#2894D1</color>
     <color name="colorSecondary">#FFFFFFFF</color>
     <color name="colorSecondaryVariant">#BEE3CB</color>
     <color name="LightSteelBlue">#BBC0CA</color>
@@ -16,4 +19,8 @@
     <color name="spaceCadet">#1C2948</color>
     <color name="purpleMountainMajesty">#78829D</color>
     <color name="Gunmetal">#11182A</color>
+    <color name="colorPrimaryNight">#000000</color>
+    <color name="colorPrimaryVariantNight">#5F6061</color>
+    <color name="colorSecondaryNight">#0F3460</color>
+    <color name="colorSecondaryVariantNight">#1F4068</color>
 </resources>

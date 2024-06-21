@@ -2,7 +2,36 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <data android:scheme="https" />
+        </intent>
+    </queries>
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,24 +41,46 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Destinatik"
         tools:targetApi="31">
+
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="YOUR_API_KEY" />
+
         <activity
-            android:name=".ResetActivity"
+            android:name=".ui.ResetActivity"
             android:exported="false"
-            android:theme="@style/Theme.Destinatik"/>
+            android:theme="@style/Theme.Destinatik" />
         <activity
-            android:name=".VerifyActivity"
+            android:name=".ui.VerifyActivity"
             android:exported="false"
-            android:theme="@style/Theme.Destinatik"/>
+            android:theme="@style/Theme.Destinatik" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".ui.ForgotPasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.Destinatik"/>
+            android:theme="@style/Theme.Destinatik" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.RegisterActivity"
             android:exported="false"
-            android:theme="@style/Theme.Destinatik"/>
+            android:theme="@style/Theme.Destinatik" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Destinatik">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Destinatik">
             <intent-filter>
@@ -38,10 +89,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Destinatik"/>
     </application>
 
 </manifest>

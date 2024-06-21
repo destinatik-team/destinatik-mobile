@@ -1,7 +1,25 @@
+<!-- res/values-night/styles.xml -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Destinatik" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.Destinatik" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariantNight</item>
+        <item name="colorSecondary">@color/colorSecondaryNight</item>
+        <item name="colorSecondaryVariant">@color/colorSecondaryVariantNight</item>
+        <item name="android:windowBackground">@color/colorPrimaryNight</item>
+        <item name="android:textColorPrimary">@color/purpleMountainMajesty</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryNight</item>
+    </style>
+
+    <style name="CustomButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:background">@drawable/button_shape_dark</item>
+        <item name="android:windowBackground">@color/purpleMountainMajesty</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="BottomNavigationViewStyle" parent="Widget.Material3.BottomNavigationView">
+        <item name="itemIconTint">@color/colorPrimaryVariant</item>
+        <item name="itemTextColor">@color/colorPrimaryVariant</item>
+        <item name="backgroundTint">@color/colorPrimaryNight</item>
     </style>
 </resources>

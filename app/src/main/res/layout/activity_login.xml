@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <TextView
         android:id="@+id/R_txt_welcome"
@@ -41,6 +41,7 @@
             android:id="@+id/R_edt_password_wlcm"
             android:layout_width="match_parent"
             android:layout_height="56dp"
+            android:inputType="textPassword"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/urbanistmedium"
             android:layout_marginTop="15dp"
@@ -108,7 +109,7 @@
 
     </LinearLayout>
 
-<!--    Cardview Google Sign-->
+    <!--    Cardview Google Sign-->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_google_login"
         android:layout_width="wrap_content"
@@ -156,4 +157,11 @@
             android:textSize="14sp" />
 
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 </RelativeLayout>
